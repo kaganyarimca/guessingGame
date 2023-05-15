@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>8.0 Tahmin Oyunu 1.0 </title>
+	<script type="text/javascript" src="TahminOyunu.js">   </script>
+	<link rel="stylesheet"  href="TahminOyunu.css" >
+</head> 
+<body onload="sayfaYukle();">
+
+	<table class="table-1">
+		<tr class="tr-1">
+			<td class="td-1">
+				<input id="input-1" type="number" >
+				<label for="input-1" > ile  </label>
+			</td>
+			<td class="td-1">
+				<input id="input-2" type="number" >
+				<label for="input-2" > arasında </label>			
+			</td>
+			<td class="td-1">
+				<button type="button" onclick="yeniSayiTut();"> Bir sayı tutunuz.  </button>
+			</td>
+		</tr>
+		
+		<tr class="tr-1">
+			<td class="td-1">
+				<input id="input-3" type="number">
+			</td>
+			<td class="td-2" colspan="2">
+			<button id="button-1" class="button-1" type="button"  onclick="tahminEt();"> Tahmin Et		</button>
+			</td>
+		</tr>
+		
+	</table>
+	
+	<br/>
+	<div class="div-1">  
+		<p id="p-1"  class="p-1"> Sonuçlar burada gözükür.  </p>
+	 </div>
+	
+</body>
+</html>
