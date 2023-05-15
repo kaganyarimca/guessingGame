@@ -19,11 +19,11 @@
 	document.getElementById("button-1").disabled=true;
 
 	document.getElementById("input-1").setAttribute("min",tahminiAltSiniri);	 // Alt sınır.
-	document.getElementById("input-1").setAttribute("max",tahminiAltSiniri);	
+	document.getElementById("input-1").setAttribute("max",tahminiUstSiniri);	
 	document.getElementById("input-2").setAttribute("min",tahminiAltSiniri);	 // Üst sınır.
-	document.getElementById("input-2").setAttribute("max",tahminiAltSiniri);
+	document.getElementById("input-2").setAttribute("max",tahminiUstSiniri);
 	document.getElementById("input-3").setAttribute("min",tahminiAltSiniri);	 // Tahmin..
-	document.getElementById("input-3").setAttribute("max",tahminiAltSiniri);
+	document.getElementById("input-3").setAttribute("max",tahminiUstSiniri);
 	
 	
 }
@@ -46,7 +46,7 @@ function yeniSayiTut(){
 		
 		tutulanDeger=deger;
 		tahminSayisi=0;
-		sonucParagrafi.innerHTML=min+ "ile"+ max +"arasında bir sayı tuttum."; //*** Dikkat hata olabilri. */
+		sonucParagrafi.innerHTML=min+ " ile "+ max +"arasında bir sayı tutuldu. Tahmin Ediniz."; 
 		console.log(min+" , " +max+ " ---> " + deger);
 		
 		
@@ -65,14 +65,27 @@ function rastgeleSayi(min,max){
 	asilDeger=hamDeger*(max-min+1)+min; // burada, üretilen sayının asıl bulunması sağlanır.
 	asilDeger=Math.floor(asilDeger);
 	return asilDeger;
-	
- 
-	
+
 }
 
 
 function tahminEt(){
 	
+	var tahmin= ~~document.getElementById("input-3").value;
+	if (tahmin>tutulanDeger)
+		sonucParagrafi.innerHTML = ++tahminSayisi+ ". tahmininiz yanlış, daha küçük bir sayı giriniz."; // ++tahmin sayısı: İlk başta 0 olarak girdik ve sayaç gibi her adımda çalışır.
+	else if(tahmin<tutulanDeger)
+		sonucParagrafi.innerHTML = ++tahminSayisi+ "tahmininiz yanlış, daha büyük bir sayı giriniz.";
+	else {
+		sonucParagrafi.innerHTML= "Tebrikler! "+ tahminSayisi +" seferde bildiniz.";
+		document.getElementById("input-3").disabled=true;
+		document.getElementById("button-1").disabled=true;
+		
+	}		
+	
+	
+
+
 
 }
 
