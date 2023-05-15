@@ -12,6 +12,7 @@
  
  function sayfaYukle(){ // sayfa ilk açılırken karşımıza çıkan görüntü ve işlevler!
 	
+	var tahminGirisi=document.getElementById("input-3");
 	sonucParagrafi=document.getElementById("p-1");
 	sonucParagrafi.innerHTML=acilisMetni;
 	
@@ -22,10 +23,17 @@
 	document.getElementById("input-1").setAttribute("max",tahminiUstSiniri);	
 	document.getElementById("input-2").setAttribute("min",tahminiAltSiniri);	 // Üst sınır.
 	document.getElementById("input-2").setAttribute("max",tahminiUstSiniri);
-	document.getElementById("input-3").setAttribute("min",tahminiAltSiniri);	 // Tahmin..
-	document.getElementById("input-3").setAttribute("max",tahminiUstSiniri);
+	tahminGirisi.setAttribute("min",tahminGirisi); // Tahmin..
+	tahminGirisi.setAttribute("max",tahminGirisi);	
+	//addEventListener
 	
-	
+	tahminGirisi.addEventListener("keyup",function(event){
+		if(event.keyCode===13){ // Herhangi bir ID verilir.
+			event.preventDefault();
+			document.getElementById("button-1").click(); // button-1 deki click komutunu kullanıldı.
+		}
+	})
+
 }
 
 function yeniSayiTut(){
